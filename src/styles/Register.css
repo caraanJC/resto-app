@@ -1,0 +1,32 @@
+.register {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  height: fit-content;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-top: 150px;
+  padding: 20px;
+}
+
+.register__username,
+.register__password,
+.register__confirmPassword {
+  width: 70%;
+  padding: 5px;
+  font-size: 25px;
+  outline-width: 0;
+  margin-bottom: 10px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+  background-color: var(--tertiary);
+  color: var(--secondary);
+}
+
+.register__username::placeholder,
+.register__password::placeholder,
+.register__confirmPassword::placeholder {
+  color: var(--secondary);
+}

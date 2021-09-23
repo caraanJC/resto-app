@@ -1,0 +1,57 @@
+.addItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  margin: 20px auto;
+  width: calc(100% - 20px);
+  padding: 20px;
+  color: var(--sub-color-1);
+  margin-top: 150px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: fit-content;
+}
+
+.addItem label {
+  font-size: 25px;
+  width: 100%;
+  margin-bottom: 10px;
+  display: block;
+  color: var(--secondary);
+}
+.addItem input,
+.addItem select {
+  width: 95%;
+  font-size: 25px;
+  margin-bottom: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+  border: none;
+  color: var(--secondary);
+  outline-width: 0;
+  padding: 5px;
+  max-width: 350px;
+  background-color: var(--tertiary);
+}
+
+.addItem input::placeholder {
+  color: var(--secondary);
+}
+
+.addItem__button {
+  margin-top: 10px;
+  cursor: pointer;
+
+  align-self: center;
+}
+
+@media screen and (min-width: 768px) {
+  .addItem__button {
+    align-self: flex-start;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .addItem {
+    margin-top: 10%;
+  }
+}
