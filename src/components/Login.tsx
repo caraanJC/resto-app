@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, Route } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { actionCreators, State } from '../state';
 
@@ -8,7 +8,10 @@ import '../styles/Login.css';
 
 const Login = () => {
   const users = useSelector((state: State) => state.users);
+
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const { setIsAdmin, setIsUser, setCurrentUser } = bindActionCreators(
     actionCreators,
     dispatch
@@ -27,8 +30,7 @@ const Login = () => {
   };
 
   const loginBtnClickHandler = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    history: any
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
     if (!userCredentials.username || !userCredentials.password) {
@@ -79,16 +81,10 @@ const Login = () => {
         value={userCredentials.password}
         className='login__password'
       />
-      <Route
-        render={({ history }) => (
-          <button
-            onClick={(e) => loginBtnClickHandler(e, history)}
-            className='login__btn button'
-          >
-            Login
-          </button>
-        )}
-      />
+
+      <button onClick={loginBtnClickHandler} className='login__btn button'>
+        Login
+      </button>
 
       <p className='login__suggestion'>
         Don't have an account?{' '}

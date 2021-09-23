@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { actionCreators, State } from '../state';
 
@@ -10,6 +10,8 @@ const Register = () => {
   const users = useSelector((state: State) => state.users);
 
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const { addUser } = bindActionCreators(actionCreators, dispatch);
 
   const initialNewUser = {
@@ -28,8 +30,7 @@ const Register = () => {
   };
 
   const registerBtnClickHandler = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    history: any
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
     if (newUser.username === 'admin') {
@@ -97,16 +98,13 @@ const Register = () => {
         onChange={inputChangeHandler}
         className='register__confirmPassword'
       />
-      <Route
-        render={({ history }) => (
-          <button
-            onClick={(e) => registerBtnClickHandler(e, history)}
-            className='register__btn button'
-          >
-            Register
-          </button>
-        )}
-      />
+
+      <button
+        onClick={registerBtnClickHandler}
+        className='register__btn button'
+      >
+        Register
+      </button>
     </form>
   );
 };
